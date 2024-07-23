@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative z-20 bg-white shadow-md">
+    <nav className="fixed z-20 w-full bg-white shadow-md">
       <div className="container mx-auto px-10 py-2 flex justify-between items-center">
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold text-[#1A4D2E]">DESA TOSALE</h1>
