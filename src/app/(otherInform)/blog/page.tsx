@@ -1,11 +1,18 @@
 import { CardSection } from "./_partials/cardSection";
+import { SearchSections } from "./_partials/searchSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Berita | Website Desa Tosale",
+};
 
 function Page() {
-    return (
-      <div className="pt-28 pb-16">
+  return (
+    <div className="pt-28 pb-16">
+      <SearchSections />
       <CardSection />
-      </div>
-    );
-  }
-  
-  export default Page;
+    </div>
+  );
+}
+
+export default Page;
