@@ -1,9 +1,12 @@
-function Page() {
-    return (
-      <>
-      <h1>visi</h1>
-      </>
-    );
-  }
-  
-  export default Page;
+import React from 'react'
+import Visi from '@/Component/VisiMisi/Visi'
+
+const VisiMisi = () => {
+  return (
+    <div>
+      <Visi />
+    </div>
+  )
+}
+
+export default VisiMisi
