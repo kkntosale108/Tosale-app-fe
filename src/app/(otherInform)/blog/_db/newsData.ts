@@ -1,3 +1,5 @@
+import { write } from "fs"
+
 const newsData = [
     {
         id: 1,
@@ -6,6 +8,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 2,
@@ -14,6 +18,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 3,
@@ -22,6 +28,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 4,
@@ -30,6 +38,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 5,
@@ -38,6 +48,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 6,
@@ -46,6 +58,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 7,
@@ -54,6 +68,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 8,
@@ -62,6 +78,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 9,
@@ -70,6 +88,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 10,
@@ -78,6 +98,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
       {
         id: 11,
@@ -86,6 +108,8 @@ const newsData = [
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam delectus perspiciatis repellendus dolores incidunt culpa quibusdam eos dignissimos, aut harum sunt nihil optio nisi. Quasi voluptates eaque harum error cupiditate.",
         image: "/aset/hero.png",
+        writer: "Nadya afriyani",
+        date: "27 juni 2024"
       },
 ]
 

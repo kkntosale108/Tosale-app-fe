@@ -23,7 +23,7 @@ const Navbar = () => {
             {isProfilOpen && (
               <ul className="absolute bg-white shadow-md mt-2 space-y-2">
                 <li><a href="#sejarah" className="block px-4 py-2 text-[#1A4D2E] hover:text-gray-700">Sejarah</a></li>
-                <li><a href="#struktur" className="block px-4 py-2 text-[#1A4D2E] hover:text-gray-700">Struktur Desa</a></li>
+                <li><a href="/strukturdesa" className="block px-4 py-2 text-[#1A4D2E] hover:text-gray-700">Struktur Desa</a></li>
                 <li><a href="/visimisi" className="block px-4 py-2 text-[#1A4D2E] hover:text-gray-700">Visi Misi</a></li>
                 <li><a href="#arah-kebijakan" className="block px-4 py-2 text-[#1A4D2E] hover:text-gray-700">Arah & Kebijakan</a></li>
               </ul>
