@@ -1,5 +1,7 @@
 import Circlefooter from "../../../public/aset/circlefooter.svg";
 import Image from "next/image";
+
+
 function FooterSection() {
   return (
     <div className="bg-[#1A4D2E] text-white rounded-t-[40px]">
@@ -25,7 +27,7 @@ function FooterSection() {
           </div>
         {/* </div> */}
         <div className="pt-20">
-          <Image src={Circlefooter} />
+          <Image src={Circlefooter} alt="Circle footer" />
         </div>
       </div>
       <hr />

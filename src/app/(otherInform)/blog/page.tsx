@@ -10,7 +10,7 @@ function Page() {
   return (
     <div className="pt-28 pb-16">
       <SearchSections />
-      <CardSection />
+      <CardSection limit={8} pagination="false"/>
     </div>
   );
 }

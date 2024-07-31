@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import NewsCard from './landing-page-newscard';
+import { CardSection } from '@/app/(otherInform)/blog/_partials/cardSection';
 
 interface NewsItem {
   image: string;
@@ -22,16 +23,9 @@ const NewsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl text-[#1A4D2E] font-bold text-center mb-8">Berita Utama</h1>
+      <h1 className="text-5xl text-[#1A4D2E] font-bold text-center mb-7 mt-16">Berita Utama</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {news.map((item, index) => (
-          <NewsCard
-            key={index}
-            image={item.image}
-            title={item.title}
-            highlight={item.highlight}
-          />
-        ))}
+        <div></div>
       </div>
     </div>
   );

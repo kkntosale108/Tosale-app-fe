@@ -5,9 +5,15 @@ import Image from "next/image";
 import PaginationSection from "./paginationSection"; 
 import newsData from "../_db/newsData";
 
-const CardSection = () => {
+interface cardSectionProps {
+  limit: number;   
+  pagination: string;
+  horizontalScroll?: boolean; // Added new prop
+}
+
+const CardSection: React.FC<cardSectionProps>  = ({limit, pagination, horizontalScroll}) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = limit || 8;
   const router = useRouter();
 
   const handlePageChange = (page: number) => {
@@ -22,13 +28,15 @@ const CardSection = () => {
     router.push(`/blog/${id}`);
   };
 
+  // const limitedNews = newsData.slice(0,6);
+
   return (
     <>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 lg:px-8 md:px-6 px-4 gap-14">
+      <div className={`grid ${horizontalScroll ? 'grid-flow-col auto-cols-max overflow-x-auto ' : 'lg:grid-cols-4 md:grid-cols-2'} lg:px-6 md:px-6 px-4 gap-11 mb-20 `}>
         {selectedItems.map((item) => (
           <div
             key={item.id}
-            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow"
+            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow h-full"
           >
             <Image
               src={item.image}
@@ -37,7 +45,7 @@ const CardSection = () => {
               width={500}
               height={300}
             />
-            <div className="p-5">
+            <div className="p-5  ">
               <div className="flex items-center justify-between">
                 <h5 className="mb-2 text-xl font-bold text-[#32343A]">
                   {item.title}
@@ -59,11 +67,11 @@ const CardSection = () => {
           </div>
         ))}
       </div>
-      <PaginationSection
+      {pagination == "true"? "":<PaginationSection
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
-      />
+      />}
     </>
   );
 };
