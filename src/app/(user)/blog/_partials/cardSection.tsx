@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import PaginationSection from "./paginationSection"; 
+import { SearchSections } from "./searchSection";
 import newsData from "../_db/newsData";
 
 const CardSection = () => {
@@ -24,6 +25,7 @@ const CardSection = () => {
 
   return (
     <>
+    <SearchSections />
       <div className="grid lg:grid-cols-4 md:grid-cols-2 lg:px-8 md:px-6 px-4 gap-14">
         {selectedItems.map((item) => (
           <div
