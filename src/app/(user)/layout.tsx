@@ -1,5 +1,5 @@
-import { FooterSection } from '@/Component/LandingPage/footerSection';
-import Navbar from '@/Component/LandingPage/landing-page-navbar';
+import { FooterSection } from '../../Component/LandingPage/footerSection';
+import Navbar from '../../Component/LandingPage/landing-page-navbar';
 import type { PropsWithChildren } from 'react';
 
 function Layout(props: PropsWithChildren) {
