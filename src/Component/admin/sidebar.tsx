@@ -14,7 +14,7 @@ function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="h-full w-80 bg-[#1A4D2E] px-4 overflow-y-auto pt-12 flex flex-col justify-between">
+    <div className="h-full w-80 fixed z-30 bg-[#1A4D2E] px-4 overflow-y-auto pt-12 flex flex-col justify-between">
       <div>
         <div className="flex flex-col items-center mb-8">
           <Image src={LogoDonggala} alt="logodonggala" className="w-20 me-3" />

@@ -241,7 +241,7 @@ function TabelStruktur() {
             </div>
             <div className="flex justify-end">
               <button
-                className="w-full px-4 py-2 bg-blue-500 text-white rounded"
+                className="w-full px-4 py-2 bg-[#1A4D2E] text-white rounded"
                 onClick={handleEdit}
               >
                 Simpan
