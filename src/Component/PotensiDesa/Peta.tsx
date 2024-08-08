@@ -1,3 +1,11 @@
+"use client";
+
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("./Map"), {
+  ssr: false,
+});
+
 const Peta = () => {
   return (
     <div className="w-full h-full container mx-auto">
@@ -6,7 +14,8 @@ const Peta = () => {
         <p className="text-[20px]">
           Menampilkan titik lokasi wisata yang ada di Desa Tosale
         </p>
-        <div className="w-full h-96 bg-blue-400 my-2 rounded-xl"></div>
+        {/* <div className="w-full h-96 bg-blue-400 my-2 rounded-xl"></div> */}
+        <Map />
       </div>
     </div>
   );

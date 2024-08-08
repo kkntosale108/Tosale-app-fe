@@ -34,7 +34,9 @@ const BlogDetail = ({ params }: { params: { id: string } }) => {
         height={300}
       />
       <div className="flex px-16 items-center justify-between">
-        <h1 className="text-3xl text-[#1A4D2E] font-bold mt-4">{newsItem.title}</h1>
+        <h1 className="text-3xl text-[#1A4D2E] font-bold mt-4">
+          {newsItem.title}
+        </h1>
         <p className="bg-[#1A4D2E] px-8 py-2 text-sm text-[#FEF7FF] rounded-full mt-2">
           {newsItem.category}
         </p>

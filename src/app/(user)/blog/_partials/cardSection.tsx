@@ -1,14 +1,33 @@
-'use client'
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import PaginationSection from "./paginationSection"; 
+import PaginationSection from "./paginationSection";
 import newsData from "../_db/newsData";
+import axios from "axios";
+import { useEffect } from "react";
 
 const CardSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [dataNews, setDataNews] = useState([]);
   const itemsPerPage = 8;
   const router = useRouter();
+
+  const handleNewsData = () => {
+    axios
+      .get(`https://118f-180-247-45-22.ngrok-free.app/news`, {
+        headers: {
+          "ngrok-skip-browser-warning": "69420",
+        },
+      })
+      .then((response) => {
+        // setDataNews(response?.data?.data);
+        console.log("ini ba coba", response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -21,6 +40,10 @@ const CardSection = () => {
   const handleReadMore = (id: number) => {
     router.push(`/blog/${id}`);
   };
+
+  useEffect(() => {
+    handleNewsData();
+  }, []);
 
   return (
     <>
