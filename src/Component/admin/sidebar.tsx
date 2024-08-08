@@ -59,9 +59,9 @@ function Sidebar() {
           </li>
           <li>
             <Link
-              href="/blogadmin"
+              href="/newsadmin"
               className={`flex items-center py-2 px-4 text-xl text-gray-900 rounded-lg ${
-                pathname === "/blogadmin" ? "bg-[#4F6F528F]" : "hover:bg-[#4F6F528F]"
+                pathname === "/newsadmin" ? "bg-[#4F6F528F]" : "hover:bg-[#4F6F528F]"
               }`}
             >
               <IoNewspaperOutline className="text-white" />

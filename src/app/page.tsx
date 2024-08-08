@@ -17,7 +17,7 @@ export default function Home() {
       <Navbar/>
       <LandingPageHero/>
       <NewsPage/>
-      <CardSection limit={5} pagination="true" horizontalScroll={true} />
+      <CardSection limit={5} pagination="true" horizontalScroll={true} showSearch={false} />
       <GalleryPage/>
       <LandingPageFooter/>
 

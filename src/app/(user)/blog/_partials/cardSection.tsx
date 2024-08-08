@@ -6,17 +6,19 @@ import PaginationSection from "./paginationSection";
 import { SearchSections } from "./searchSection";
 import newsData from "../_db/newsData";
 
+
+
 interface cardSectionProps {
   limit: number;   
   pagination: string;
-  horizontalScroll?: boolean; // Added new prop
+  horizontalScroll?: boolean;
+  showSearch?: boolean; // Tambahkan prop baru
 }
 
-const CardSection: React.FC<cardSectionProps>  = ({limit, pagination, horizontalScroll}) => {
+const CardSection: React.FC<cardSectionProps>  = ({limit, pagination, horizontalScroll, showSearch = true}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = limit || 8;
   const router = useRouter();
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -34,8 +36,8 @@ const CardSection: React.FC<cardSectionProps>  = ({limit, pagination, horizontal
   return (
     <>
    
-    <SearchSections />
-    <div className={`grid ${horizontalScroll ? 'grid-flow-col auto-cols-max overflow-x-auto ' : 'lg:grid-cols-4 md:grid-cols-2'} lg:px-6 md:px-6 px-4 gap-11 mb-20 `}>
+    {showSearch && <SearchSections />}
+    <div className={`grid ${horizontalScroll ? 'grid-flow-col auto-cols-max overflow-x-auto gap-4 p-4 transition-transform duration-300 transform hover:scale-105' : 'lg:grid-cols-4 md:grid-cols-2'} lg:px-6 md:px-6 px-4 gap-11 mb-20 `}>
         {selectedItems.map((item) => (
           <div
             key={item.id}

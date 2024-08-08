@@ -1,5 +1,7 @@
-const hero = './aset/hero.png'; // URL relatif ke root server
+const hero = './aset/hero.png'; 
+const logodonggala ='./aset/logo_donggala.png'
 
 export {
-    hero
+    hero,
+    logodonggala
 };

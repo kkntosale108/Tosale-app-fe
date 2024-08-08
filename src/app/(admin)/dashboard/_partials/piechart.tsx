@@ -2,72 +2,93 @@
 import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import axios from 'axios'; // Tambahkan import axios
 
 // Daftarkan elemen Chart.js yang diperlukan
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
-  const [data, setData] = useState({ menengah: 0, atas: 0, bawah: 0 });
-  
-  
-  const dummyData = {
-    labels: ['Miskin', 'Kaya', 'Menengah'],
-    datasets: [{
-      label: 'Jumlah KK',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
-  };
+  const [chartData, setChartData] = useState<{ labels: string[]; datasets: { label: string; data: number[]; backgroundColor: string[]; borderColor: string[]; borderWidth: number; }[] }>({ 
+    labels: ['Label 1', 'Label 2', 'Label 3'], // Dummy data untuk label
+    datasets: [
+      {
+        label: 'Dataset',
+        data: [30, 50, 100], // Dummy data untuk nilai
+        backgroundColor: [
+          'rgba(128, 128, 255, 0.8)',
+          'rgba(255, 128, 128, 0.8)',
+          'rgba(128, 255, 255, 0.8)',
+        ],
+        borderColor: [
+          'rgba(128, 128, 255, 1)',
+          'rgba(255, 128, 128, 1)',
+          'rgba(128, 255, 255, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  }); // Tambahkan dummy data
 
   useEffect(() => {
-    // Fungsi untuk mengambil data dari database
     const fetchData = async () => {
-      try {
-        const response = await fetch('/api/data'); // Ganti dengan endpoint API Anda
-        const result = await response.json();
-        
-        // Mengelompokkan data
-        const groupedData = {
-          menengah: result.filter((item: { category: string }) => item.category === 'menengah').length,
-          atas: result.filter((item: { category: string }) => item.category === 'atas').length,
-          bawah: result.filter((item: { category: string }) => item.category === 'bawah').length,
-        };
+      const response = await axios.get('/api/data'); // Ganti dengan endpoint API yang sesuai
+      const data = response.data;
 
-        setData(groupedData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+      setChartData({
+        labels: data.labels, // Asumsikan data.labels ada di response
+        datasets: [
+          {
+            label: 'Dataset',
+            data: data.values, // Asumsikan data.values ada di response
+            backgroundColor: [
+              'rgba(128, 128, 255, 0.8)',
+              'rgba(255, 128, 128, 0.8)',
+              'rgba(128, 255, 255, 0.8)',
+            ],
+            borderColor: [
+              'rgba(128, 128, 255, 1)',
+              'rgba(255, 128, 128, 1)',
+              'rgba(128, 255, 255, 1)',
+            ],
+            borderWidth: 1,
+          },
+        ],
+      });
     };
 
     fetchData();
   }, []);
 
-  const chartData = {
-    labels: ['Menengah', 'Atas', 'Bawah'],
-    datasets: [
-      {
-        data: [data.menengah, data.atas, data.bawah],
-        backgroundColor: ['blue', 'red', 'yellow'],
-        hoverOffset: 4,
+  const options = {
+    plugins: {
+      legend: {
+        position: 'right' as const,
+        labels: {
+          usePointStyle: true,
+        },
       },
-    ],
+      tooltip: {
+        position: 'nearest' as const,
+        callbacks: {
+          label: function (context: any) {
+            let label = context.label || '';
+            if (label) {
+              label += ': ';
+            }
+            if (context.parsed !== null) {
+              label += context.parsed;
+              label += ' (' + context.raw + ')';
+            }
+            return label;
+          },
+        },
+      },
+    },
+    responsive: true, // Tambahkan responsif
+    maintainAspectRatio: false, // Tambahkan untuk mengatur rasio aspek
   };
 
-  
-  return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
-      <div>
-        <Pie data={dummyData} style={{width: '125%', height: '125%'}} />
-      {/* <Pie data={chartData} width={100} height={100} /> */}
-        </div> 
-      
-    </div>
-  );
+  return <div style={{ display: 'flex', justifyContent: 'center',  width: '100%', height: '400px' }}><Pie data={chartData} options={options} /></div>; // Menggunakan style untuk memusatkan
 };
 
 export default PieChart;

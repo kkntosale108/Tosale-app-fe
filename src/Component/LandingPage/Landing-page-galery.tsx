@@ -10,13 +10,24 @@ const GalleryPage = () => {
   const [images, setImages] = useState<{ Image: string }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
-    axios.get('https://669f7bc6b132e2c136fe00ff.mockapi.io/news')
-      .then(response => {
-        console.log('Fetched images:', response.data);
-        setImages(response.data.slice(0, 5)); // Batasi data hanya 5
-      })
+    axios.get('https://a5c6-180-247-47-49.ngrok-free.app/gallery', {
+      headers: {"ngrok-skip-browser-warning": "69420"
+
+      }
+    })
+    .then(response => {
+      console.log('Status:', response.status); 
+      console.log('Fetched images:', response?.data?.data);
+      if (response.data && response.data.data) {
+        setImages(response.data.data.slice(0, 5).map((item: { image: string }) => ({ Image: item.image })));
+      } else {
+        console.error('Data tidak ditemukan dalam respons');
+        setImages([]);
+      }
+    })
       .catch(error => {
         console.error('Error fetching images:', error);
+        setImages([]); 
       });
   }, []);
 
@@ -30,9 +41,18 @@ const GalleryPage = () => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
+
   useEffect(() => {
     console.log('Current index:', currentIndex);
   }, [currentIndex]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    }, 3000); // Ganti gambar setiap 3 detik
+
+    return () => clearInterval(interval); // Bersihkan interval saat komponen di-unmount
+  }, [images.length]);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
